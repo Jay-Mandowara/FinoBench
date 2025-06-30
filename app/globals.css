@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 220 100% 4%;
+    --foreground: 220 100% 98%;
+    --card: 220 50% 8%;
+    --card-foreground: 220 100% 98%;
+    --popover: 220 50% 8%;
+    --popover-foreground: 220 100% 98%;
+    --primary: 200 100% 50%;
+    --primary-foreground: 220 100% 98%;
+    --secondary: 220 50% 12%;
+    --secondary-foreground: 220 100% 98%;
+    --muted: 220 50% 12%;
+    --muted-foreground: 220 50% 65%;
+    --accent: 200 100% 50%;
+    --accent-foreground: 220 100% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 220 100% 98%;
+    --border: 220 50% 15%;
+    --input: 220 50% 15%;
+    --ring: 200 100% 50%;
+    --chart-1: 200 100% 50%;
+    --chart-2: 160 100% 50%;
+    --chart-3: 30 100% 60%;
+    --chart-4: 280 100% 60%;
+    --chart-5: 340 100% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background: radial-gradient(ellipse at top, #001122 0%, #000000 50%, #001133 100%);
+    min-height: 100vh;
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(0, 191, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 191, 255, 0.8), 0 0 40px rgba(0, 191, 255, 0.3);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 191, 255, 0.6), 0 0 30px rgba(0, 191, 255, 0.2);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.glow-effect {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.pulse-glow {
+  animation: pulse-glow 1.5s ease-in-out infinite;
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+.neon-text {
+  text-shadow: 0 0 10px rgba(0, 191, 255, 0.8), 0 0 20px rgba(0, 191, 255, 0.5), 0 0 30px rgba(0, 191, 255, 0.3);
+}
+
+.electric-border {
+  border: 1px solid transparent;
+  background: linear-gradient(45deg, #00bfff, #0080ff, #0040ff, #00bfff) border-box;
+  border-radius: 8px;
+  position: relative;
+}
+
+.electric-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  background: linear-gradient(45deg, #00bfff, #0080ff, #0040ff, #00bfff);
+  border-radius: inherit;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
